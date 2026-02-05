@@ -17,6 +17,7 @@
   /* Primitives — surfaces */
   --color-bg-base: oklch(0.1791 0.0883 314.92);
   --color-bg-surface: oklch(0.2683 0.0774 319.96);
+  --color-focused-input: oklch(0.3363 0.0836 318.96);
   --color-bg-control: oklch(0.4521 0.0946 320.37);
 
   /* Semantic — text */
@@ -25,6 +26,8 @@
   /* Semantic — fields/controls */
   --color-field-active-bg: var(--color-accent-20);
   --color-control-bg: var(--color-bg-control);
+
+  --color-error: oklch(0.62 0.23 25);
 
   /* Absolutes */
   --color-black: #000000;
