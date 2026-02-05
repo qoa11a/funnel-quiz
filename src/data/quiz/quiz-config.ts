@@ -1,4 +1,12 @@
 import { QuestionType, QuizQuestion } from '@/types/quiz/quiz';
+import { QuestionId } from '@/enums/quiz/question-id';
+import {
+  LanguageOptionId,
+  GenderOptionId,
+  AgeGroupOptionId,
+  HateInBooksOptionId,
+  FavoriteTopicsOptionId,
+} from '@/enums/quiz/option-id';
 
 /*
  * Todo: Discuss the possibility to build a quiz builder tool rather than
@@ -12,7 +20,7 @@ function createQuestion<T extends QuizQuestion>(question: T): T {
 
 export const QUIZ_CONFIG = [
   createQuestion({
-    id: 'language',
+    id: QuestionId.Language,
     type: QuestionType.LanguageSelection,
     title: {
       translationKey: 'language.title',
@@ -21,14 +29,31 @@ export const QUIZ_CONFIG = [
       translationKey: 'language.subtitle',
     },
     languages: [
-      { code: 'en', labelTranslationKey: 'language.english' },
-      { code: 'fr', labelTranslationKey: 'language.french' },
-      { code: 'de', labelTranslationKey: 'language.german' },
-      { code: 'es', labelTranslationKey: 'language.spanish' },
+      {
+        id: LanguageOptionId.English,
+        locale: 'en',
+        translationKey: 'language.english',
+      },
+      {
+        id: LanguageOptionId.French,
+        locale: 'fr',
+        translationKey: 'language.french',
+      },
+      {
+        id: LanguageOptionId.German,
+        locale: 'de',
+        translationKey: 'language.german',
+      },
+      {
+        id: LanguageOptionId.Spanish,
+        locale: 'es',
+        translationKey: 'language.spanish',
+      },
     ],
   }),
+
   createQuestion({
-    id: 'gender',
+    id: QuestionId.Gender,
     type: QuestionType.SingleSelectionWithImage,
     title: {
       translationKey: 'gender.title',
@@ -38,50 +63,80 @@ export const QUIZ_CONFIG = [
     },
     options: [
       {
-        labelTranslationKey: 'gender.female',
+        id: GenderOptionId.Female,
+        translationKey: 'gender.female',
         imageSrc: '/images/quiz/gender/female.png',
       },
       {
-        labelTranslationKey: 'gender.male',
+        id: GenderOptionId.Male,
+        translationKey: 'gender.male',
         imageSrc: '/images/quiz/gender/male.png',
       },
       {
-        labelTranslationKey: 'gender.other',
+        id: GenderOptionId.Other,
+        translationKey: 'gender.other',
         imageSrc: '/images/quiz/gender/other.png',
       },
     ],
   }),
+
   createQuestion({
-    id: 'age',
+    id: QuestionId.AgeGroup,
     type: QuestionType.SingleSelection,
     title: {
       translationKey: 'age.title',
       type: 'large',
     },
-    optionsTranslationKeys: [
-      'age.option-1',
-      'age.option-2',
-      'age.option-3',
-      'age.option-4',
+    options: [
+      {
+        id: AgeGroupOptionId.Age18to29,
+        translationKey: 'age.option-1',
+      },
+      {
+        id: AgeGroupOptionId.Age30to39,
+        translationKey: 'age.option-2',
+      },
+      {
+        id: AgeGroupOptionId.Age40to49,
+        translationKey: 'age.option-3',
+      },
+      {
+        id: AgeGroupOptionId.Age50plus,
+        translationKey: 'age.option-4',
+      },
     ],
   }),
+
   createQuestion({
-    id: 'hate-in-books',
+    id: QuestionId.HateInBooks,
     type: QuestionType.MultipleSelection,
     title: {
       translationKey: 'hate-in-book.title-plain',
       richTranslationKey: 'hate-in-book.title-rich',
       type: 'large',
     },
-    optionsTranslationKeys: [
-      'hate-in-book.option-1',
-      'hate-in-book.option-2',
-      'hate-in-book.option-3',
-      'hate-in-book.option-4',
+    options: [
+      {
+        id: HateInBooksOptionId.LackOfLogic,
+        translationKey: 'hate-in-book.option-1',
+      },
+      {
+        id: HateInBooksOptionId.SlowSpeed,
+        translationKey: 'hate-in-book.option-2',
+      },
+      {
+        id: HateInBooksOptionId.LackOfHumor,
+        translationKey: 'hate-in-book.option-3',
+      },
+      {
+        id: HateInBooksOptionId.GenericEnding,
+        translationKey: 'hate-in-book.option-4',
+      },
     ],
   }),
+
   createQuestion({
-    id: 'favorite-topics',
+    id: QuestionId.FavoriteTopics,
     type: QuestionType.BubbleSelection,
     title: {
       translationKey: 'favorite-topic.title',
@@ -92,31 +147,38 @@ export const QUIZ_CONFIG = [
     maxSelections: 3,
     options: [
       {
-        labelTranslationKey: 'favorite-topic.option-1',
+        id: FavoriteTopicsOptionId.Werewolf,
+        translationKey: 'favorite-topic.option-1',
         imageSrc: '/images/quiz/favorite-topics/werewolf.png',
       },
       {
-        labelTranslationKey: 'favorite-topic.option-3',
+        id: FavoriteTopicsOptionId.Action,
+        translationKey: 'favorite-topic.option-3',
         imageSrc: '/images/quiz/favorite-topics/action.png',
       },
       {
-        labelTranslationKey: 'favorite-topic.option-5',
+        id: FavoriteTopicsOptionId.RoyalObsession,
+        translationKey: 'favorite-topic.option-5',
         imageSrc: '/images/quiz/favorite-topics/royal-obsession.png',
       },
       {
-        labelTranslationKey: 'favorite-topic.option-7',
+        id: FavoriteTopicsOptionId.Billionaire,
+        translationKey: 'favorite-topic.option-7',
         imageSrc: '/images/quiz/favorite-topics/billionaire.png',
       },
       {
-        labelTranslationKey: 'favorite-topic.option-2',
+        id: FavoriteTopicsOptionId.Romance,
+        translationKey: 'favorite-topic.option-2',
         imageSrc: '/images/quiz/favorite-topics/romance.png',
       },
       {
-        labelTranslationKey: 'favorite-topic.option-4',
+        id: FavoriteTopicsOptionId.YoungAdult,
+        translationKey: 'favorite-topic.option-4',
         imageSrc: '/images/quiz/favorite-topics/young-adult.png',
       },
       {
-        labelTranslationKey: 'favorite-topic.option-6',
+        id: FavoriteTopicsOptionId.BadBoy,
+        translationKey: 'favorite-topic.option-6',
         imageSrc: '/images/quiz/favorite-topics/bad-boy.png',
       },
     ],

@@ -9,13 +9,11 @@ import MultipleSelect from '@/components/quiz/ui/options/multiple-select';
 import BubbleSelect from '@/components/quiz/ui/options/bubble-select';
 
 interface Props {
-  currentStep: number;
   currentQuestion: QuizQuestion;
   nextPageUrl: string;
 }
 
 export default function QuizRenderer({
-  currentStep,
   currentQuestion,
   nextPageUrl,
 }: Props) {
@@ -44,7 +42,6 @@ export default function QuizRenderer({
 
       {currentQuestion.type === QuestionType.LanguageSelection && (
         <LanguageSelect
-          currentStep={currentStep}
           question={currentQuestion}
           nextPageUrl={nextPageUrl}
         />
@@ -52,7 +49,6 @@ export default function QuizRenderer({
 
       {currentQuestion.type === QuestionType.SingleSelectionWithImage && (
         <SingleSelectWithImage
-          currentStep={currentStep}
           question={currentQuestion}
           nextPageUrl={nextPageUrl}
         />
@@ -60,7 +56,6 @@ export default function QuizRenderer({
 
       {currentQuestion.type === QuestionType.SingleSelection && (
         <SingleSelect
-          currentStep={currentStep}
           question={currentQuestion}
           nextPageUrl={nextPageUrl}
         />
@@ -68,7 +63,6 @@ export default function QuizRenderer({
 
       {currentQuestion.type === QuestionType.MultipleSelection && (
         <MultipleSelect
-          currentStep={currentStep}
           question={currentQuestion}
           nextPageUrl={nextPageUrl}
         />
@@ -76,7 +70,6 @@ export default function QuizRenderer({
 
       {currentQuestion.type === QuestionType.BubbleSelection && (
         <BubbleSelect
-          currentStep={currentStep}
           question={currentQuestion}
           nextPageUrl={nextPageUrl}
           maxSelections={currentQuestion.maxSelections}

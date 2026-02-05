@@ -1,6 +1,13 @@
 import { routing } from '@/i18n/routing';
 import { QuizTranslationKey } from '@/types/translations';
+import { QuestionId } from '@/enums/quiz/question-id';
+import {
+  AgeGroupOptionId, FavoriteTopicsOptionId,
+  GenderOptionId, HateInBooksOptionId,
+  LanguageOptionId,
+} from '@/enums/quiz/option-id';
 
+/* ---- General ---- */
 export enum QuestionType {
   LanguageSelection = 'LanguageSelection',
   SingleSelection = 'SingleSelection',
@@ -12,33 +19,37 @@ export enum QuestionType {
 interface Title {
   translationKey: QuizTranslationKey;
   richTranslationKey?: QuizTranslationKey;
-  type?: 'regular' | 'large';
 }
 
-// Later we may add support for different subtitle types
 interface Subtitle {
   translationKey: QuizTranslationKey;
 }
 
 interface BaseQuestion {
-  id: string;
+  id: QuestionId;
   title: Title;
   subtitle?: Subtitle;
 }
 
-export interface LanguageOption {
-  code: (typeof routing.locales)[number];
-  labelTranslationKey: QuizTranslationKey;
+/* ---- Language selection question ---- */
+interface LanguageSelectionOption {
+  id: LanguageOptionId;
+  locale: (typeof routing.locales)[number];
+  translationKey: QuizTranslationKey;
 }
 
 export interface LanguageSelectionQuestion extends BaseQuestion {
   type: QuestionType.LanguageSelection;
-  languages: LanguageOption[];
+  languages: LanguageSelectionOption[];
 }
 
-export interface SingleSelectionWithImageOption {
+/* ---- Single selection with image question ---- */
+type SingleSelectionWithImageOptionId = GenderOptionId;
+
+interface SingleSelectionWithImageOption {
+  id: SingleSelectionWithImageOptionId;
   imageSrc: string;
-  labelTranslationKey: QuizTranslationKey;
+  translationKey: QuizTranslationKey;
 }
 
 export interface SingleSelectionWithImageQuestion extends BaseQuestion {
@@ -46,28 +57,49 @@ export interface SingleSelectionWithImageQuestion extends BaseQuestion {
   options: SingleSelectionWithImageOption[];
 }
 
+/* ---- Single selection question ---- */
+type SingleSelectionOptionId = AgeGroupOptionId;
+
+interface SingleSelectionOption {
+  id: SingleSelectionOptionId;
+  translationKey: QuizTranslationKey;
+}
+
 export interface SingleSelectionQuestion extends BaseQuestion {
   type: QuestionType.SingleSelection;
-  optionsTranslationKeys: QuizTranslationKey[];
+  options: SingleSelectionOption[];
+}
+
+/* ---- Multiple selection question ---- */
+type MultipleSelectionOptionId = HateInBooksOptionId;
+
+interface MultipleSelectionOption {
+  id: MultipleSelectionOptionId;
+  translationKey: QuizTranslationKey;
 }
 
 export interface MultipleSelectionQuestion extends BaseQuestion {
   type: QuestionType.MultipleSelection;
-  optionsTranslationKeys: QuizTranslationKey[];
+  options: MultipleSelectionOption[];
   maxSelections?: number;
 }
 
-interface BubbleOption {
+/* ---- Bubble selection question ---- */
+type BubbleSelectionOptionId = FavoriteTopicsOptionId;
+
+interface BubbleSelectionOption {
+  id: BubbleSelectionOptionId;
   imageSrc: string;
-  labelTranslationKey: QuizTranslationKey;
+  translationKey: QuizTranslationKey;
 }
 
 export interface BubbleSelectionQuestion extends BaseQuestion {
   type: QuestionType.BubbleSelection;
-  options: BubbleOption[];
+  options: BubbleSelectionOption[];
   maxSelections?: number;
 }
 
+/* ---- General ---- */
 export type QuizQuestion =
   | LanguageSelectionQuestion
   | SingleSelectionWithImageQuestion

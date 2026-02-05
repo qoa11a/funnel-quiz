@@ -12,34 +12,31 @@ import { cn } from '@/lib/cn';
 
 interface Props {
   nextPageUrl: string;
-  currentStep: number;
   question: SingleSelectionWithImageQuestion;
 }
 
 export default function SingleSelectWithImage({
   nextPageUrl,
-  currentStep,
   question,
 }: Props) {
   const t = useTranslations('Quiz');
 
-  const { initialAnswer, handleOptionSelect } = useSingleSelection({
+  const { initialAnswerId, handleOptionSelect } = useSingleSelection({
     nextPageUrl,
-    currentStep,
     question,
   });
 
   return (
     <div className="flex flex-wrap justify-center gap-3 px-6">
-      {question.options.map(({ imageSrc, labelTranslationKey }, index) => {
-        const answer = t(labelTranslationKey);
+      {question.options.map(({ id, imageSrc, translationKey }) => {
+        const answer = t(translationKey);
 
-        const isPreselected = initialAnswer === answer;
+        const isPreselected = initialAnswerId === id;
 
         return (
           <QuizAnimatedButton
-            key={index}
-            onSelected={() => handleOptionSelect({ answer })}
+            key={id}
+            onSelected={() => handleOptionSelect({ id })}
             className={cn(
               'flex-col h-auto py-7 px-6 gap-3 min-w-25',
               isPreselected && 'ring-2 ring-accent',

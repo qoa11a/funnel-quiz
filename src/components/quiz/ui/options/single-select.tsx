@@ -11,37 +11,34 @@ import { cn } from '@/lib/cn';
 
 interface Props {
   nextPageUrl: string;
-  currentStep: number;
   question: SingleSelectionQuestion;
 }
 
 export default function SingleSelect({
   nextPageUrl,
-  currentStep,
   question,
 }: Props) {
   const t = useTranslations('Quiz');
 
-  const { initialAnswer, handleOptionSelect } = useSingleSelection({
+  const { initialAnswerId, handleOptionSelect } = useSingleSelection({
     nextPageUrl,
-    currentStep,
     question,
   });
 
   return (
     <div className="flex flex-col gap-3 px-6">
-      {question.optionsTranslationKeys.map((translationKey, index) => {
+      {question.options.map(({ id, translationKey }) => {
         const answer = t(translationKey);
 
-        const isPreselected = initialAnswer === answer;
+        const isPreselected = initialAnswerId === id;
 
         return (
           <QuizAnimatedButton
-            key={index}
-            onSelected={() => handleOptionSelect({ answer })}
+            key={id}
+            onSelected={() => handleOptionSelect({ id })}
             className={cn(
-              "justify-center",
-              isPreselected && "ring-2 ring-accent",
+              'justify-center',
+              isPreselected && 'ring-2 ring-accent',
             )}
           >
             <Text className="text-center text-white font-medium">

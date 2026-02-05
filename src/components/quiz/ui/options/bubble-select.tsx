@@ -33,33 +33,30 @@ const columnOffsetClassList = [
 
 interface Props {
   nextPageUrl: string;
-  currentStep: number;
   question: BubbleSelectionQuestion;
   maxSelections?: number;
 }
 
 export default function BubbleSelect({
   nextPageUrl,
-  currentStep,
   question,
   maxSelections,
 }: Props) {
   const t = useTranslations('Quiz');
 
   const {
-    selectedAnswers,
+    selectedAnswersIds,
     handleOptionToggle,
     handleNextButtonClick,
   } = useMultipleSelection({
     nextPageUrl,
-    currentStep,
     question,
   });
 
-  const isButtonDisabled = selectedAnswers.length === 0;
+  const isButtonDisabled = selectedAnswersIds.length === 0;
   const canSelectMore = (
     maxSelections === undefined ||
-    selectedAnswers.length < maxSelections
+    selectedAnswersIds.length < maxSelections
   );
 
   const columnList = splitIntoColumns(question.options);
@@ -76,20 +73,20 @@ export default function BubbleSelect({
                 columnOffsetClassList[columnIndex],
               )}
             >
-              {column.map((option) => {
-                const answer = t(option.labelTranslationKey);
+              {column.map(({ id, translationKey, imageSrc }) => {
+                const answer = t(translationKey);
 
-                const checked = selectedAnswers.includes(answer);
+                const checked = selectedAnswersIds.includes(id);
                 const disabled = !checked && !canSelectMore;
 
                 return (
                   <button
-                    key={option.labelTranslationKey}
+                    key={id}
                     type="button"
                     disabled={disabled}
                     onClick={() => handleOptionToggle({
                       isChecked: checked,
-                      answer,
+                      id,
                     })}
                     className={cn(
                       // size
@@ -108,7 +105,7 @@ export default function BubbleSelect({
                     aria-pressed={checked}
                   >
                     <Image
-                      src={option.imageSrc}
+                      src={imageSrc}
                       alt=""
                       width={25}
                       height={25}

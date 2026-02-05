@@ -13,53 +13,50 @@ import {
 
 interface Props {
   nextPageUrl: string;
-  currentStep: number;
   question: MultipleSelectionQuestion;
   maxSelections?: number;
 }
 
 export default function MultipleSelect({
   nextPageUrl,
-  currentStep,
   question,
   maxSelections,
 }: Props) {
   const t = useTranslations('Quiz');
 
   const {
-    selectedAnswers,
+    selectedAnswersIds,
     handleOptionToggle,
     handleNextButtonClick,
   } = useMultipleSelection({
     nextPageUrl,
-    currentStep,
     question,
   });
 
-  const isButtonDisabled = selectedAnswers.length === 0;
+  const isButtonDisabled = selectedAnswersIds.length === 0;
 
   const canSelectMore = (
     maxSelections === undefined ||
-    selectedAnswers.length < maxSelections
+    selectedAnswersIds.length < maxSelections
   );
 
   return (
     <>
       <div className="flex flex-col gap-3 px-6">
-        {question.optionsTranslationKeys.map((translationKey, index) => {
+        {question.options.map(({ id, translationKey }) => {
           const answer = t(translationKey);
 
-          const checked = selectedAnswers.includes(answer);
+          const checked = selectedAnswersIds.includes(id);
           const disabled = !checked && !canSelectMore;
 
           return (
             <QuizMultipleSelectButton
-              key={index}
+              key={id}
               checked={checked}
               disabled={disabled}
               onCheckedChange={(nextIsChecked) => handleOptionToggle({
                 isChecked: !nextIsChecked,
-                answer,
+                id,
               })}
               className="justify-center"
             >

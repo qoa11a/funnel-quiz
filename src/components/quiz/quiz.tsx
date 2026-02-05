@@ -29,7 +29,6 @@ export default function Quiz({ step, quizConfig }: Props) {
       />
 
       <QuizRenderer
-        currentStep={currentStep}
         currentQuestion={currentQuestion}
         nextPageUrl={nextPageUrl}
       />

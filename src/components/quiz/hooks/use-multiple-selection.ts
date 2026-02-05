@@ -1,76 +1,63 @@
 import React from 'react';
 import { quizStorage } from '@/storage/quiz/quiz-storage';
-import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { QuizQuestion } from '@/types/quiz/quiz';
+import { OptionId } from '@/enums/quiz/option-id';
 
 interface HandleOptionToggleParams {
   isChecked: boolean;
-  answer: string;
+  id: OptionId;
 }
 
 interface Props {
   nextPageUrl: string;
-  currentStep: number;
   question: QuizQuestion;
 }
 
 export const useMultipleSelection = ({
   nextPageUrl,
-  currentStep,
   question,
 }: Props) => {
-  const t = useTranslations('Quiz');
   const router = useRouter();
 
   const [
-    selectedAnswers,
-    setSelectedAnswers,
-  ] = React.useState<string[]>([]);
+    selectedAnswersIds,
+    setSelectedAnswersIds,
+  ] = React.useState<OptionId[]>([]);
 
   React.useEffect(() => {
     const savedQuestion = quizStorage.getAll()[question.id];
 
-    const answers = savedQuestion?.answer;
+    const answers = savedQuestion?.answerIds;
 
     const initialAnswers = Array.isArray(answers) ? answers : [];
 
-    setSelectedAnswers(initialAnswers);
+    setSelectedAnswersIds(initialAnswers);
   }, [question.id]);
 
   const handleOptionToggle = ({
     isChecked,
-    answer,
+    id,
   }: HandleOptionToggleParams) => {
-    setSelectedAnswers((prev) => {
+    setSelectedAnswersIds((prev) => {
       const nextValue = isChecked
-        ? prev.filter((a) => a !== answer)
-        : [...prev, answer];
+        ? prev.filter((a) => a !== id)
+        : [...prev, id];
 
-      quizStorage.updateAnswer(question.id, {
-        number: currentStep,
-        title: t(question.title.translationKey),
-        type: question.type,
-        answer: nextValue,
-      });
+      quizStorage.updateAnswer(question.id, nextValue);
 
       return nextValue;
     });
   };
 
   const handleNextButtonClick = () => {
-    quizStorage.updateAnswer(question.id, {
-      number: currentStep,
-      title: t(question.title.translationKey),
-      type: question.type,
-      answer: selectedAnswers,
-    });
+    quizStorage.updateAnswer(question.id, selectedAnswersIds);
 
     router.push(nextPageUrl);
   };
 
   return {
-    selectedAnswers,
+    selectedAnswersIds,
     handleOptionToggle,
     handleNextButtonClick,
   };

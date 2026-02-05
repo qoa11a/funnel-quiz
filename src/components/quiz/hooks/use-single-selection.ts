@@ -1,51 +1,46 @@
 import { quizStorage } from '@/storage/quiz/quiz-storage';
 import { useRouter } from '@/i18n/navigation';
 import { QuizQuestion } from '@/types/quiz/quiz';
-import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import React from 'react';
+import { OptionId } from '@/enums/quiz/option-id';
 
 interface HandleOptionSelectParams {
-  answer: string;
+  id: OptionId;
   locale?: (typeof routing.locales)[number];
 }
 
 interface Props {
   nextPageUrl: string;
-  currentStep: number;
   question: QuizQuestion;
 }
 
 export const useSingleSelection = ({
   nextPageUrl,
-  currentStep,
   question,
 }: Props) => {
-  const t = useTranslations('Quiz');
   const router = useRouter();
 
-  const [initialAnswer, setInitialAnswer] = React.useState<string | null>(null);
+  const [
+    initialAnswerId,
+    setInitialAnswerId,
+  ] = React.useState<OptionId | null>(null);
 
   React.useEffect(() => {
     const savedQuestion = quizStorage.getAll()[question.id];
 
-    const answer = savedQuestion?.answer;
+    const answer = savedQuestion?.answerIds;
 
-    setInitialAnswer(typeof answer === 'string' ? answer : null);
+    setInitialAnswerId(Array.isArray(answer) ? answer[0] : null);
   }, [question.id]);
 
-  const handleOptionSelect = ({ answer, locale }: HandleOptionSelectParams) => {
-    setInitialAnswer(null);
+  const handleOptionSelect = ({ id, locale }: HandleOptionSelectParams) => {
+    setInitialAnswerId(null);
 
-    quizStorage.updateAnswer(question.id, {
-      number: currentStep,
-      title: t(question.title.translationKey),
-      type: question.type,
-      answer,
-    });
+    quizStorage.updateAnswer(question.id, [id]);
 
     router.push(nextPageUrl, { locale });
   };
 
-  return { initialAnswer, handleOptionSelect };
+  return { initialAnswerId, handleOptionSelect };
 };

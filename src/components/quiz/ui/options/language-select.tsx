@@ -12,36 +12,33 @@ import { cn } from '@/lib/cn';
 
 interface Props {
   nextPageUrl: string;
-  currentStep: number;
   question: LanguageSelectionQuestion;
 }
 
 export default function LanguageSelect({
   nextPageUrl,
-  currentStep,
   question,
 }: Props) {
   const t = useTranslations('Quiz');
 
-  const { initialAnswer, handleOptionSelect } = useSingleSelection({
+  const { initialAnswerId, handleOptionSelect } = useSingleSelection({
     nextPageUrl,
-    currentStep,
     question,
   });
 
   return (
     <div className="flex flex-col gap-3 px-6">
-      {question.languages.map(({ code, labelTranslationKey }) => {
-        const answer = t(labelTranslationKey);
+      {question.languages.map(({ id, locale, translationKey }) => {
+        const answer = t(translationKey);
 
-        const isPreselected = initialAnswer === answer;
+        const isPreselected = initialAnswerId === id;
 
         return (
           <QuizAnimatedButton
-            key={code}
+            key={id}
             onSelected={() => handleOptionSelect({
-              answer,
-              locale: code,
+              id,
+              locale,
             })}
             className={cn(isPreselected && 'ring-2 ring-accent')}
           >

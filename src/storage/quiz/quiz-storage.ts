@@ -1,17 +1,15 @@
-import { QuestionType } from '@/types/quiz/quiz';
 import { isBrowser } from '@/utils/is-browser';
-import { LocalStorageKey } from '@/constants/local-storage-key';
+import { LocalStorageKey } from '@/enums/local-storage-key';
+import { OptionId } from '@/enums/quiz/option-id';
+import { QuestionId } from '@/enums/quiz/question-id';
 
 export interface QuizAnswerRecord {
-  number: number;
-  title: string;
-  type: QuestionType;
-  answer: string | string[];
+  answerIds: OptionId[];
   updatedAt: string;
 }
 
-export interface QuizAnswers {
-  [questionId: string]: QuizAnswerRecord;
+export type QuizAnswers = {
+  [Q in QuestionId]?: QuizAnswerRecord;
 }
 
 /*
@@ -44,8 +42,8 @@ export const quizStorage = {
   },
 
   updateAnswer(
-    questionId: string,
-    record: Omit<QuizAnswerRecord, 'updatedAt'>,
+    questionId: QuestionId,
+    answerIds: QuizAnswerRecord['answerIds'],
   ) {
     if (!isBrowser()) return;
 
@@ -53,7 +51,7 @@ export const quizStorage = {
 
     allAnswers[questionId] = {
       ...allAnswers[questionId],
-      ...record,
+      answerIds,
       updatedAt: new Date().toISOString(),
     };
 
