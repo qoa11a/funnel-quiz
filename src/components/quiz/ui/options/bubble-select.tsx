@@ -1,5 +1,4 @@
 import {
-  BubbleSelectionOption,
   BubbleSelectionQuestion,
 } from '@/types/quiz/quiz';
 import { useTranslations } from 'next-intl';
@@ -128,7 +127,7 @@ export default function BubbleSelect({
         className="mt-auto mx-6"
         onClick={handleNextButtonClick}
       >
-        {t('next')}
+        {t('button')}
       </Button>
     </>
   );

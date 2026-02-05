@@ -8,6 +8,7 @@ import {
   useSingleSelection,
 } from '@/components/quiz/hooks/use-single-selection';
 import { cn } from '@/lib/cn';
+import { resolveOptions } from '@/components/quiz/helpers';
 
 interface Props {
   nextPageUrl: string;
@@ -25,9 +26,11 @@ export default function SingleSelect({
     question,
   });
 
+  const options = resolveOptions(question);
+
   return (
     <div className="flex flex-col gap-3 px-6">
-      {question.options.map(({ id, translationKey }) => {
+      {options.map(({ id, translationKey }) => {
         const answer = t(translationKey);
 
         const isPreselected = initialAnswerId === id;

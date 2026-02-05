@@ -61,9 +61,20 @@
       "option-13": "Cowboys",
       "option-14": "Finance"
     },
-    "next": "Next"
+    "button": "Next"
   },
   "Loader": {
-    "finding-collection": "Finding collections for you..."
+    "subtitle": "Finding collections for you..."
+  },
+  "Email": {
+    "title": "Email",
+    "subtitle": "Enter your email to get full access",
+    "placeholder": "Your email",
+    "privacy-and-terms-disclaimer": "By continuing I agree with <privacy>Privacy policy</privacy> and <terms>Terms of use.</terms>",
+    "button": "Next",
+    "errors": {
+      "invalid-email": "Please enter a valid email address",
+      "required": "Email is required"
+    }
   }
 }

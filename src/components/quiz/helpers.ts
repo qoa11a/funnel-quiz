@@ -1,6 +1,4 @@
 import {
-  BubbleSelectionOption,
-  BubbleSelectionQuestion,
   OptionsType,
   QuizQuestion,
 } from '@/types/quiz/quiz';
@@ -33,13 +31,9 @@ type ResolvedOptions<Q> =
       ? F
       : never;
 
-export function resolveOptions(question: BubbleSelectionQuestion): BubbleSelectionOption[];
-
-export function resolveOptions<Q extends QuizQuestion>(question: Q): ResolvedOptions<Q>;
-
-export function resolveOptions(question: QuizQuestion) {
+export function resolveOptions<Q extends QuizQuestion>(question: Q): ResolvedOptions<Q> {
   if (question.optionsType === OptionsType.Static) {
-    return question.options;
+    return question.options as ResolvedOptions<Q>;
   }
 
   const dependantQuestionId = question.dependantQuestionId;
@@ -49,7 +43,7 @@ export function resolveOptions(question: QuizQuestion) {
   if (!savedAnswers) {
     console.error(`No saved answers found for dependant question ID: ${dependantQuestionId}`);
 
-    return question.fallbackOptions;
+    return question.fallbackOptions as ResolvedOptions<Q>;
   }
 
   const savedAnswerIds = savedAnswers.answerIds;
@@ -57,10 +51,10 @@ export function resolveOptions(question: QuizQuestion) {
   for (const rule of question.rules) {
     for (const id of savedAnswerIds) {
       if (rule.dependantOptionIds.includes(id)) {
-        return rule.options;
+        return rule.options as ResolvedOptions<Q>;
       }
     }
   }
 
-  return question.fallbackOptions;
+  return question.fallbackOptions as ResolvedOptions<Q>;
 }

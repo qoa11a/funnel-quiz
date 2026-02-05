@@ -2,8 +2,10 @@ import { routing } from '@/i18n/routing';
 import { QuizTranslationKey } from '@/types/translations';
 import { QuestionId } from '@/enums/quiz/question-id';
 import {
-  AgeGroupOptionId, FavoriteTopicsOptionId,
-  GenderOptionId, HateInBooksOptionId,
+  AgeGroupOptionId,
+  FavoriteTopicsOptionId,
+  GenderOptionId,
+  HateInBooksOptionId,
   LanguageOptionId, OptionId,
 } from '@/enums/quiz/option-id';
 
@@ -20,6 +22,30 @@ export enum OptionsType {
   Static = 'Static',
   Dependant = 'Dependant',
 }
+
+type StaticOptionsQuestion<O> = {
+  optionsType: OptionsType.Static;
+  options: O;
+};
+
+/*
+ * Todo: Ask PMs if we plan to add complex dependant rules. If so, implement
+ *  a simple query language to define the rules (AND, OR, NOT, etc.).
+ */
+
+type DependantOptionsQuestion<O> = {
+  optionsType: OptionsType.Dependant;
+  dependantQuestionId: QuestionId;
+  fallbackOptions: O;
+  rules: Array<{
+    dependantOptionIds: OptionId[];
+    options: O;
+  }>;
+};
+
+type OptionsQuestion<O> =
+  StaticOptionsQuestion<O>
+  | DependantOptionsQuestion<O>;
 
 interface Title {
   translationKey: QuizTranslationKey;
@@ -45,26 +71,12 @@ interface LanguageSelectionOption {
   translationKey: QuizTranslationKey;
 }
 
-interface StaticLanguageSelectionQuestion extends BaseQuestion {
+interface LanguageSelectionQuestionCore extends BaseQuestion {
   type: QuestionType.LanguageSelection;
-  optionsType: OptionsType.Static;
-  options: LanguageSelectionOption[];
-}
-
-interface DependantLanguageSelectionQuestion extends BaseQuestion {
-  type: QuestionType.LanguageSelection;
-  optionsType: OptionsType.Dependant;
-  dependantQuestionId: QuestionId;
-  rules: {
-    dependantOptionIds: OptionId[];
-    options: LanguageSelectionOption[];
-  }[];
-  fallbackOptions: LanguageSelectionOption[];
 }
 
 export type LanguageSelectionQuestion =
-  | StaticLanguageSelectionQuestion
-  | DependantLanguageSelectionQuestion;
+  LanguageSelectionQuestionCore & OptionsQuestion<LanguageSelectionOption[]>;
 
 /* ---- Single selection with image question ---- */
 type SingleSelectionWithImageOptionId = GenderOptionId;
@@ -75,26 +87,13 @@ interface SingleSelectionWithImageOption {
   translationKey: QuizTranslationKey;
 }
 
-interface StaticSingleSelectionWithImageQuestion extends BaseQuestion {
+interface SingleSelectionWithImageQuestionCore extends BaseQuestion {
   type: QuestionType.SingleSelectionWithImage;
-  optionsType: OptionsType.Static;
-  options: SingleSelectionWithImageOption[];
-}
-
-interface DependantSingleSelectionWithImageQuestion extends BaseQuestion {
-  type: QuestionType.SingleSelectionWithImage;
-  optionsType: OptionsType.Dependant;
-  dependantQuestionId: QuestionId;
-  rules: {
-    dependantOptionIds: OptionId[];
-    options: SingleSelectionWithImageOption[];
-  }[];
-  fallbackOptions: SingleSelectionWithImageOption[];
 }
 
 export type SingleSelectionWithImageQuestion =
-  | StaticSingleSelectionWithImageQuestion
-  | DependantSingleSelectionWithImageQuestion;
+  SingleSelectionWithImageQuestionCore
+  & OptionsQuestion<SingleSelectionWithImageOption[]>;
 
 /* ---- Single selection question ---- */
 type SingleSelectionOptionId = AgeGroupOptionId;
@@ -104,26 +103,12 @@ interface SingleSelectionOption {
   translationKey: QuizTranslationKey;
 }
 
-interface StaticSingleSelectionQuestion extends BaseQuestion {
+interface SingleSelectionQuestionCore extends BaseQuestion {
   type: QuestionType.SingleSelection;
-  optionsType: OptionsType.Static;
-  options: SingleSelectionOption[];
-}
-
-interface DependantSingleSelectionQuestion extends BaseQuestion {
-  type: QuestionType.SingleSelection;
-  optionsType: OptionsType.Dependant;
-  dependantQuestionId: QuestionId;
-  rules: {
-    dependantOptionIds: OptionId[];
-    options: SingleSelectionOption[];
-  }[];
-  fallbackOptions: SingleSelectionOption[];
 }
 
 export type SingleSelectionQuestion =
-  | StaticSingleSelectionQuestion
-  | DependantSingleSelectionQuestion;
+  SingleSelectionQuestionCore & OptionsQuestion<SingleSelectionOption[]>;
 
 /* ---- Multiple selection question ---- */
 type MultipleSelectionOptionId = HateInBooksOptionId;
@@ -133,28 +118,13 @@ interface MultipleSelectionOption {
   translationKey: QuizTranslationKey;
 }
 
-interface StaticMultipleSelectionQuestion extends BaseQuestion {
+interface MultipleSelectionQuestionCore extends BaseQuestion {
   type: QuestionType.MultipleSelection;
-  optionsType: OptionsType.Static;
-  options: MultipleSelectionOption[];
-  maxSelections?: number;
-}
-
-interface DependantMultipleSelectionQuestion extends BaseQuestion {
-  type: QuestionType.MultipleSelection;
-  optionsType: OptionsType.Dependant;
-  dependantQuestionId: QuestionId;
-  rules: {
-    dependantOptionIds: OptionId[];
-    options: MultipleSelectionOption[];
-  }[];
-  fallbackOptions: MultipleSelectionOption[];
   maxSelections?: number;
 }
 
 export type MultipleSelectionQuestion =
-  | StaticMultipleSelectionQuestion
-  | DependantMultipleSelectionQuestion;
+  MultipleSelectionQuestionCore & OptionsQuestion<MultipleSelectionOption[]>;
 
 /* ---- Bubble selection question ---- */
 type BubbleSelectionOptionId = FavoriteTopicsOptionId;
@@ -165,33 +135,13 @@ export interface BubbleSelectionOption {
   translationKey: QuizTranslationKey;
 }
 
-interface StaticBubbleSelectionQuestion extends BaseQuestion {
+interface BubbleSelectionQuestionCore extends BaseQuestion {
   type: QuestionType.BubbleSelection;
-  optionsType: OptionsType.Static;
-  options: BubbleSelectionOption[];
-  maxSelections?: number;
-}
-
-/*
- * Todo: Ask PMs if we plan to add complex dependant rules. If so, implement
- *  a simple query language to define the rules (AND, OR, NOT, etc.).
- */
-
-interface DependantBubbleSelectionQuestion extends BaseQuestion {
-  type: QuestionType.BubbleSelection;
-  optionsType: OptionsType.Dependant;
-  dependantQuestionId: QuestionId;
-  rules: {
-    dependantOptionIds: OptionId[];
-    options: BubbleSelectionOption[];
-  }[];
-  fallbackOptions: BubbleSelectionOption[];
   maxSelections?: number;
 }
 
 export type BubbleSelectionQuestion =
-  | StaticBubbleSelectionQuestion
-  | DependantBubbleSelectionQuestion;
+  BubbleSelectionQuestionCore & OptionsQuestion<BubbleSelectionOption[]>;
 
 /* ---- General ---- */
 export type QuizQuestion =

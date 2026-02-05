@@ -10,6 +10,7 @@ import Button from '@/components/ui/button';
 import {
   useMultipleSelection,
 } from '@/components/quiz/hooks/use-multiple-selection';
+import { resolveOptions } from '@/components/quiz/helpers';
 
 interface Props {
   nextPageUrl: string;
@@ -40,10 +41,12 @@ export default function MultipleSelect({
     selectedAnswersIds.length < maxSelections
   );
 
+  const options = resolveOptions(question);
+
   return (
     <>
       <div className="flex flex-col gap-3 px-6">
-        {question.options.map(({ id, translationKey }) => {
+        {options.map(({ id, translationKey }) => {
           const answer = t(translationKey);
 
           const checked = selectedAnswersIds.includes(id);
@@ -73,7 +76,7 @@ export default function MultipleSelect({
         className="mt-auto mx-6"
         onClick={handleNextButtonClick}
       >
-        {t('next')}
+        {t('button')}
       </Button>
     </>
   );
