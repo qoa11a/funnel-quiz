@@ -1,0 +1,58 @@
+{
+  "HomePage": {
+    "title": "¡Hola mundo!"
+  },
+  "NotFoundPage": {
+    "description": "Por favor, verifique la dirección en la barra del navegador o use la navegación para ir a una página conocida.",
+    "title": "Página no encontrada"
+  },
+  "Manifest": {
+    "name": "HOLYWATER"
+  },
+  "LocaleLayout": {
+    "title": "HOLYWATER"
+  },
+  "Quiz": {
+    "language": {
+      "title": "¿Cuál es su idioma preferido?",
+      "subtitle": "Elija el idioma",
+      "english": "Inglés",
+      "french": "Francés",
+      "german": "Alemán",
+      "spanish": "Español"
+    },
+    "gender": {
+      "title": "¿Con qué género se identifica?",
+      "subtitle": "Por favor, comparta cómo se identifica",
+      "female": "Femenino",
+      "male": "Masculino",
+      "other": "Otro"
+    },
+    "age": {
+      "title": "¿Cuál es su edad?",
+      "option-1": "18-29 años",
+      "option-2": "30-39 años",
+      "option-3": "40-49 años",
+      "option-4": "50+"
+    },
+    "hate-in-book": {
+      "title": "¿Qué es lo que más <accent>odia</accent> en un libro?",
+      "option-1": "Falta de lógica",
+      "option-2": "Ritmo lento",
+      "option-3": "Falta de humor",
+      "option-4": "Final demasiado genérico"
+    },
+    "favorite-topic": {
+      "title": "¿Cuáles son sus temas favoritos?",
+      "subtitle": "Elija hasta 3 temas que le gusten",
+      "option-1": "Hombre lobo",
+      "option-2": "Romance",
+      "option-3": "Acción",
+      "option-4": "Young Adult",
+      "option-5": "Obsesión real",
+      "option-6": "Chico malo",
+      "option-7": "Multimillonario"
+    },
+    "next": "Siguiente"
+  }
+}

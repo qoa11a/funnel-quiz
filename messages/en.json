@@ -1,0 +1,59 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "NotFoundPage": {
+    "description": "Please double-check the browser address bar or use the navigation to go to a known page.",
+    "title": "Page not found"
+  },
+  "Manifest": {
+    "name": "HOLYWATER"
+  },
+  "LocaleLayout": {
+    "title": "HOLYWATER"
+  },
+  "Quiz": {
+    "language": {
+      "title": "What is your preferred language?",
+      "subtitle": "Choose language",
+      "english": "English",
+      "french": "French",
+      "german": "German",
+      "spanish": "Spanish"
+    },
+    "gender": {
+      "title": "What gender do you identify with?",
+      "subtitle": "Please share how do you identify yourself",
+      "female": "Female",
+      "male": "Male",
+      "other": "Other"
+    },
+    "age": {
+      "title": "What is your age?",
+      "option-1": "18-29 years",
+      "option-2": "30-39 years",
+      "option-3": "40-49 years",
+      "option-4": "50+"
+    },
+    "hate-in-book": {
+      "title-plain": "What do you hate the most in a book?",
+      "title-rich": "What do you <accent>hate</accent> the most in a book?",
+      "option-1": "Lack of logic",
+      "option-2": "A slow speed",
+      "option-3": "Lack of humor",
+      "option-4": "Way too generic ending"
+    },
+    "favorite-topic": {
+      "title": "What are your favorite topics?",
+      "subtitle": "Choose up to 3 topics you like",
+      "option-1": "Werewolf",
+      "option-2": "Romance",
+      "option-3": "Action",
+      "option-4": "Young Adult",
+      "option-5": "Royal Obsession",
+      "option-6": "Bad Boy",
+      "option-7": "Billionaire"
+    },
+    "next": "Next"
+  }
+}

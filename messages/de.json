@@ -1,0 +1,58 @@
+{
+  "HomePage": {
+    "title": "Hallo Welt!"
+  },
+  "NotFoundPage": {
+    "description": "Bitte überprüfen Sie die Adresse in der Browserleiste oder verwenden Sie die Navigation, um zu einer bekannten Seite zu gelangen.",
+    "title": "Seite nicht gefunden"
+  },
+  "Manifest": {
+    "name": "HOLYWATER"
+  },
+  "LocaleLayout": {
+    "title": "HOLYWATER"
+  },
+  "Quiz": {
+    "language": {
+      "title": "Welche Sprache bevorzugen Sie?",
+      "subtitle": "Sprache auswählen",
+      "english": "Englisch",
+      "french": "Französisch",
+      "german": "Deutsch",
+      "spanish": "Spanisch"
+    },
+    "gender": {
+      "title": "Mit welchem Geschlecht identifizieren Sie sich?",
+      "subtitle": "Bitte teilen Sie uns mit, wie Sie sich identifizieren",
+      "female": "Weiblich",
+      "male": "Männlich",
+      "other": "Andere"
+    },
+    "age": {
+      "title": "Wie alt sind Sie?",
+      "option-1": "18-29 Jahre",
+      "option-2": "30-39 Jahre",
+      "option-3": "40-49 Jahre",
+      "option-4": "50+"
+    },
+    "hate-in-book": {
+      "title": "Was <accent>hassen</accent> Sie am meisten an einem Buch?",
+      "option-1": "Mangel an Logik",
+      "option-2": "Langsames Tempo",
+      "option-3": "Mangel an Humor",
+      "option-4": "Viel zu generisches Ende"
+    },
+    "favorite-topic": {
+      "title": "Was sind Ihre Lieblingsthemen?",
+      "subtitle": "Wählen Sie bis zu 3 Themen, die Ihnen gefallen",
+      "option-1": "Werwolf",
+      "option-2": "Romantik",
+      "option-3": "Action",
+      "option-4": "Young Adult",
+      "option-5": "Königliche Obsession",
+      "option-6": "Bad Boy",
+      "option-7": "Milliardär"
+    },
+    "next": "Weiter"
+  }
+}

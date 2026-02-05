@@ -42,3 +42,6 @@ next-env.d.ts
 
 # IDE
 .idea
+
+# Messages types
+messages/*.d.json.ts

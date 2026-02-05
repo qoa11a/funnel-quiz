@@ -1,0 +1,32 @@
+/* Todo: Discuss colors and other design system variables with designers */
+
+@theme {
+  --color-*: initial;
+
+  /* Primitives — neutrals */
+  --color-neutral-0: oklch(0.964 0.0029 264.54);
+  --color-neutral-100: oklch(0.9378 0.011 274.89);
+  --color-neutral-300: oklch(0.8308 0.0071 247.91);
+  --color-neutral-300-50: oklch(0.8308 0.0071 247.91 / 50%);
+
+  /* Primitives — brand */
+  --color-accent: oklch(0.6175 0.2423 348.96);
+  --color-accent-20: oklch(0.6171 0.2418 349.29 / 20%);
+  --color-accent-40: oklch(0.6171 0.2418 349.29 / 40%);
+
+  /* Primitives — surfaces */
+  --color-bg-base: oklch(0.1791 0.0883 314.92);
+  --color-bg-surface: oklch(0.2683 0.0774 319.96);
+  --color-bg-control: oklch(0.4521 0.0946 320.37);
+
+  /* Semantic — text */
+  --color-text-primary: var(--color-neutral-0);
+
+  /* Semantic — fields/controls */
+  --color-field-active-bg: var(--color-accent-20);
+  --color-control-bg: var(--color-bg-control);
+
+  /* Absolutes */
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
