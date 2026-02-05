@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Nunito_Sans, Albert_Sans } from 'next/font/google';
+import { Nunito_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Locale, NextIntlClientProvider } from 'next-intl';
 import '@/styles/globals.css';
@@ -23,12 +23,6 @@ const nunitoSans = Nunito_Sans({
   variable: '--font-nunito-sans',
 });
 
-const albertSans = Albert_Sans({
-  subsets: ['latin'],
-  variable: '--font-albert-sans',
-});
-
-// Todo: Decide if we want to statically generate all pages
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -63,7 +57,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${niconne.variable} ${nunitoSans.variable} ${albertSans.variable}`}
+      className={`${niconne.variable} ${nunitoSans.variable}`}
     >
       <body className="m-0 text-text-primary bg-bg-base flex flex-col h-dvh overflow-hidden">
         <NextIntlClientProvider>

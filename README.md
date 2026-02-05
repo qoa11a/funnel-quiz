@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HOLYWATER
 
-## Getting Started
+This is a [HOLYWATER](https://www.holywater.tech/) test task. It's the funnel
+config.
 
-First, run the development server:
+## [Demo](https://holy-water-test-task-opal.vercel.app/en/quiz/1)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run this project locally, follow these steps:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/qoa11a/funnel-quiz.git
+    ```
+2. Navigate to the project directory:
+   ```bash
+   cd holy-water-test-task
+   ```
+3. Install the dependencies:
+   ```bash
+    npm install
+   ```
+4. Start the development server:
+   ```bash
+    npm run dev
+    ```
+5. Open your browser and go to `http://localhost:3000` to see the application.
+6. To stop the development server, press `Ctrl + C` in the terminal.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Decisions Made
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- I've implemented branching of quiz questions based on previous answers. You
+  may see an example of it in the fifth question (bubble). Its answer options
+  depend on the answer to the third question (age group).
+- I've left a few TODO comments. These are the things that I would implement if
+  I were working on the real project.
+- You may notice I haven't used useCallback, useMemo, or provided some otherwise
+  required dependencies for useEffect. It was intentional due to the React
+  Compiler usage.
+- I noticed a few different fonts in the Figma design, and I concluded that's
+  one of them is redundant. In real world situation, I'd discuss it with
+  designer, but for this task I just chose one of them to avoid unnecessary
+  complexity.
