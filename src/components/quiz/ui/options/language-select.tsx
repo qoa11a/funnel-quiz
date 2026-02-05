@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Headline } from '@/components/ui/typography';
 import QuizAnimatedButton from '@/components/quiz/ui/quiz-animated-button';
-import { LanguageSelectionQuestion } from '@/types/quiz';
+import { LanguageSelectionQuestion } from '@/types/quiz/quiz';
 import {
   useSingleSelection,
 } from '@/components/quiz/hooks/use-single-selection';

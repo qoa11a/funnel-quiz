@@ -2,7 +2,7 @@
 
 import QuizHeader from '@/components/quiz/ui/quiz-header';
 import QuizRenderer from '@/components/quiz/ui/question-renderer';
-import { QuizConfig } from '@/types/quiz';
+import { QuizConfig } from '@/types/quiz/quiz';
 
 interface Props {
   step: string;

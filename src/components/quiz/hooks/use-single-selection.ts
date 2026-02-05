@@ -1,6 +1,6 @@
-import { quizStorage } from '@/storage/quiz-storage';
+import { quizStorage } from '@/storage/quiz/quiz-storage';
 import { useRouter } from '@/i18n/navigation';
-import { QuizQuestion } from '@/types/quiz';
+import { QuizQuestion } from '@/types/quiz/quiz';
 import { useTranslations } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import React from 'react';

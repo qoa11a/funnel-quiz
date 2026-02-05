@@ -1,8 +1,8 @@
 import React from 'react';
-import { quizStorage } from '@/storage/quiz-storage';
+import { quizStorage } from '@/storage/quiz/quiz-storage';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
-import { QuizQuestion } from '@/types/quiz';
+import { QuizQuestion } from '@/types/quiz/quiz';
 
 interface HandleOptionToggleParams {
   isChecked: boolean;

@@ -1,4 +1,4 @@
-import { QuestionType, QuizQuestion } from '@/types/quiz';
+import { QuestionType, QuizQuestion } from '@/types/quiz/quiz';
 import { useTranslations } from 'next-intl';
 import { Headline, TitleH3 } from '@/components/ui/typography';
 import LanguageSelect from '@/components/quiz/ui/options/language-select';

@@ -1,4 +1,4 @@
-import { QuestionType, QuizQuestion } from '@/types/quiz';
+import { QuestionType, QuizQuestion } from '@/types/quiz/quiz';
 
 /*
  * Todo: Discuss the possibility to build a quiz builder tool rather than

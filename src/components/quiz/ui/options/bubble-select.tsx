@@ -1,6 +1,6 @@
 import {
   BubbleSelectionQuestion,
-} from '@/types/quiz';
+} from '@/types/quiz/quiz';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 import Button from '@/components/ui/button';

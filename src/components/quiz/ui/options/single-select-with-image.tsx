@@ -1,6 +1,6 @@
 import {
   SingleSelectionWithImageQuestion,
-} from '@/types/quiz';
+} from '@/types/quiz/quiz';
 import Image from 'next/image';
 import QuizAnimatedButton from '@/components/quiz/ui/quiz-animated-button';
 import { useTranslations } from 'next-intl';

@@ -1,4 +1,4 @@
-import { QuestionType } from '@/types/quiz';
+import { QuestionType } from '@/types/quiz/quiz';
 import { isBrowser } from '@/utils/is-browser';
 import { LocalStorageKey } from '@/constants/local-storage-key';
 

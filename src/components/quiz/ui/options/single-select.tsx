@@ -1,6 +1,6 @@
 import {
   SingleSelectionQuestion,
-} from '@/types/quiz';
+} from '@/types/quiz/quiz';
 import QuizAnimatedButton from '@/components/quiz/ui/quiz-animated-button';
 import { useTranslations } from 'next-intl';
 import { Text } from '@/components/ui/typography';

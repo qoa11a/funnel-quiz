@@ -1,6 +1,6 @@
 import {
   MultipleSelectionQuestion,
-} from '@/types/quiz';
+} from '@/types/quiz/quiz';
 import { useTranslations } from 'next-intl';
 import { Text } from '@/components/ui/typography';
 import QuizMultipleSelectButton
