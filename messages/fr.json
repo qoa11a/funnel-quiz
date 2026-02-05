@@ -3,7 +3,7 @@
     "title": "Bonjour le monde !"
   },
   "NotFoundPage": {
-    "description": "Veuillez vérifier l’adresse dans la barre du navigateur ou utiliser la navigation pour accéder à une page connue.",
+    "description": "Veuillez vérifier la barre d'adresse du navigateur ou utiliser la navigation pour accéder à une page connue.",
     "title": "Page non trouvée"
   },
   "Manifest": {
@@ -24,8 +24,8 @@
     "gender": {
       "title": "À quel genre vous identifiez-vous ?",
       "subtitle": "Veuillez indiquer comment vous vous identifiez",
-      "female": "Femme",
-      "male": "Homme",
+      "female": "Féminin",
+      "male": "Masculin",
       "other": "Autre"
     },
     "age": {
@@ -36,23 +36,52 @@
       "option-4": "50+"
     },
     "hate-in-book": {
-      "title": "Qu’est-ce que vous <accent>détestez</accent> le plus dans un livre ?",
+      "title-plain": "Qu'est-ce que vous détestez le plus dans un livre ?",
+      "title-rich": "Qu'est-ce que vous <accent>détestez</accent> le plus dans un livre ?",
       "option-1": "Manque de logique",
-      "option-2": "Un rythme lent",
-      "option-3": "Manque d’humour",
-      "option-4": "Une fin beaucoup trop générique"
+      "option-2": "Rythme lent",
+      "option-3": "Manque d'humour",
+      "option-4": "Fin beaucoup trop générique"
     },
     "favorite-topic": {
       "title": "Quels sont vos sujets préférés ?",
-      "subtitle": "Choisissez jusqu’à 3 sujets que vous aimez",
+      "subtitle": "Choisissez jusqu'à 3 sujets que vous aimez",
       "option-1": "Loup-garou",
       "option-2": "Romance",
       "option-3": "Action",
-      "option-4": "Jeune adulte",
+      "option-4": "Young Adult",
       "option-5": "Obsession royale",
-      "option-6": "Bad boy",
-      "option-7": "Milliardaire"
+      "option-6": "Bad Boy",
+      "option-7": "Milliardaire",
+      "option-8": "Loups",
+      "option-9": "Amour",
+      "option-10": "Danses",
+      "option-11": "Gentille fille",
+      "option-12": "Politique",
+      "option-13": "Cowboys",
+      "option-14": "Finance"
     },
-    "next": "Suivant"
+    "button": "Suivant"
+  },
+  "Loader": {
+    "subtitle": "Recherche de collections pour vous..."
+  },
+  "Email": {
+    "email": "Email",
+    "title": "Email",
+    "subtitle": "Entrez votre email pour obtenir un accès complet",
+    "placeholder": "Votre email",
+    "privacy-and-terms-disclaimer": "En continuant, j'accepte la <privacy>Politique de confidentialité</privacy> et les <terms>Conditions d'utilisation</terms>.",
+    "button": "Suivant",
+    "errors": {
+      "invalid-email": "Veuillez entrer une adresse email valide",
+      "required": "L'email est requis"
+    }
+  },
+  "ThankYou": {
+    "title": "Merci",
+    "subtitle": "pour votre soutien et pour avoir complété le quiz",
+    "downloadButton": "Télécharger mes réponses",
+    "button": "Refaire le quiz"
   }
 }

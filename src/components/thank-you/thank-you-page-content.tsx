@@ -7,12 +7,25 @@ import Checkmark from '@/components/thank-you/ui/checkmark';
 import { Download } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { useRouter } from '@/i18n/navigation';
+import { exportQuizAnswersAsCsv } from '@/lib/csv';
+import { QuizConfig } from '@/types/quiz/quiz';
 
-export default function ThankYouPageContent() {
+interface Props {
+  quizConfig: QuizConfig;
+}
+
+export default function ThankYouPageContent({ quizConfig }: Props) {
   const t = useTranslations('ThankYou');
+  const tQuiz = useTranslations('Quiz');
+  const tEmail = useTranslations('Email');
   const router = useRouter();
 
   const handleDownloadButtonClick = () => {
+    exportQuizAnswersAsCsv({
+      quizConfig,
+      tQuiz,
+      tEmail,
+    });
   };
 
   const handleButtonClick = () => {

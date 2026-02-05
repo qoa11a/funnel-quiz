@@ -193,37 +193,37 @@ export const QUIZ_CONFIG = [
     ],
     fallbackOptions: [
       {
-        id: FavoriteTopicsOptionId.Werewolf,
+        id: FavoriteTopicsOptionId.Wolves,
         translationKey: 'favorite-topic.option-8',
         imageSrc: '/images/quiz/favorite-topics/werewolf.png',
       },
       {
-        id: FavoriteTopicsOptionId.Action,
+        id: FavoriteTopicsOptionId.Dances,
         translationKey: 'favorite-topic.option-10',
         imageSrc: '/images/quiz/favorite-topics/action.png',
       },
       {
-        id: FavoriteTopicsOptionId.RoyalObsession,
+        id: FavoriteTopicsOptionId.Politics,
         translationKey: 'favorite-topic.option-12',
         imageSrc: '/images/quiz/favorite-topics/royal-obsession.png',
       },
       {
-        id: FavoriteTopicsOptionId.Billionaire,
+        id: FavoriteTopicsOptionId.Finance,
         translationKey: 'favorite-topic.option-14',
         imageSrc: '/images/quiz/favorite-topics/billionaire.png',
       },
       {
-        id: FavoriteTopicsOptionId.Romance,
+        id: FavoriteTopicsOptionId.Love,
         translationKey: 'favorite-topic.option-9',
         imageSrc: '/images/quiz/favorite-topics/romance.png',
       },
       {
-        id: FavoriteTopicsOptionId.YoungAdult,
+        id: FavoriteTopicsOptionId.GoodGirl,
         translationKey: 'favorite-topic.option-11',
         imageSrc: '/images/quiz/favorite-topics/young-adult.png',
       },
       {
-        id: FavoriteTopicsOptionId.BadBoy,
+        id: FavoriteTopicsOptionId.Cowboys,
         translationKey: 'favorite-topic.option-13',
         imageSrc: '/images/quiz/favorite-topics/bad-boy.png',
       },

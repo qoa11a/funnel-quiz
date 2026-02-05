@@ -67,6 +67,7 @@
     "subtitle": "Finding collections for you..."
   },
   "Email": {
+    "email": "Email",
     "title": "Email",
     "subtitle": "Enter your email to get full access",
     "placeholder": "Your email",

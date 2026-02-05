@@ -33,6 +33,13 @@ export enum FavoriteTopicsOptionId {
   Romance = 'romance',
   YoungAdult = 'young-adult',
   BadBoy = 'bad-boy',
+  Wolves = 'wolves',
+  Love = 'love',
+  Dances = 'dances',
+  GoodGirl = 'good-girl',
+  Politics = 'politics',
+  Cowboys = 'cowboys',
+  Finance = 'finance',
 }
 
 export type OptionId =

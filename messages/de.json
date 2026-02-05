@@ -3,7 +3,7 @@
     "title": "Hallo Welt!"
   },
   "NotFoundPage": {
-    "description": "Bitte überprüfen Sie die Adresse in der Browserleiste oder verwenden Sie die Navigation, um zu einer bekannten Seite zu gelangen.",
+    "description": "Bitte überprüfe die Adressleiste des Browsers oder nutze die Navigation, um zu einer bekannten Seite zu gelangen.",
     "title": "Seite nicht gefunden"
   },
   "Manifest": {
@@ -14,7 +14,7 @@
   },
   "Quiz": {
     "language": {
-      "title": "Welche Sprache bevorzugen Sie?",
+      "title": "Welche Sprache bevorzugst du?",
       "subtitle": "Sprache auswählen",
       "english": "Englisch",
       "french": "Französisch",
@@ -22,37 +22,66 @@
       "spanish": "Spanisch"
     },
     "gender": {
-      "title": "Mit welchem Geschlecht identifizieren Sie sich?",
-      "subtitle": "Bitte teilen Sie uns mit, wie Sie sich identifizieren",
+      "title": "Mit welchem Geschlecht identifizierst du dich?",
+      "subtitle": "Bitte teile mit, wie du dich identifizierst",
       "female": "Weiblich",
       "male": "Männlich",
       "other": "Andere"
     },
     "age": {
-      "title": "Wie alt sind Sie?",
+      "title": "Wie alt bist du?",
       "option-1": "18-29 Jahre",
       "option-2": "30-39 Jahre",
       "option-3": "40-49 Jahre",
       "option-4": "50+"
     },
     "hate-in-book": {
-      "title": "Was <accent>hassen</accent> Sie am meisten an einem Buch?",
+      "title-plain": "Was hasst du am meisten an einem Buch?",
+      "title-rich": "Was <accent>hasst</accent> du am meisten an einem Buch?",
       "option-1": "Mangel an Logik",
       "option-2": "Langsames Tempo",
       "option-3": "Mangel an Humor",
       "option-4": "Viel zu generisches Ende"
     },
     "favorite-topic": {
-      "title": "Was sind Ihre Lieblingsthemen?",
-      "subtitle": "Wählen Sie bis zu 3 Themen, die Ihnen gefallen",
+      "title": "Was sind deine Lieblingsthemen?",
+      "subtitle": "Wähle bis zu 3 Themen aus, die dir gefallen",
       "option-1": "Werwolf",
       "option-2": "Romantik",
       "option-3": "Action",
       "option-4": "Young Adult",
       "option-5": "Königliche Obsession",
       "option-6": "Bad Boy",
-      "option-7": "Milliardär"
+      "option-7": "Milliardär",
+      "option-8": "Wölfe",
+      "option-9": "Liebe",
+      "option-10": "Tänze",
+      "option-11": "Braves Mädchen",
+      "option-12": "Politik",
+      "option-13": "Cowboys",
+      "option-14": "Finanzen"
     },
-    "next": "Weiter"
+    "button": "Weiter"
+  },
+  "Loader": {
+    "subtitle": "Wir finden Sammlungen für dich..."
+  },
+  "Email": {
+    "email": "E-Mail",
+    "title": "E-Mail",
+    "subtitle": "Gib deine E-Mail ein, um vollen Zugriff zu erhalten",
+    "placeholder": "Deine E-Mail",
+    "privacy-and-terms-disclaimer": "Wenn ich fortfahre, stimme ich der <privacy>Datenschutzrichtlinie</privacy> und den <terms>Nutzungsbedingungen</terms> zu.",
+    "button": "Weiter",
+    "errors": {
+      "invalid-email": "Bitte gib eine gültige E-Mail-Adresse ein",
+      "required": "E-Mail ist erforderlich"
+    }
+  },
+  "ThankYou": {
+    "title": "Danke",
+    "subtitle": "für deine Unterstützung und das Ausfüllen des Quiz",
+    "downloadButton": "Meine Antworten herunterladen",
+    "button": "Quiz erneut starten"
   }
 }

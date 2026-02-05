@@ -3,7 +3,7 @@
     "title": "¡Hola mundo!"
   },
   "NotFoundPage": {
-    "description": "Por favor, verifique la dirección en la barra del navegador o use la navegación para ir a una página conocida.",
+    "description": "Por favor, revisa la barra de direcciones del navegador o usa la navegación para ir a una página conocida.",
     "title": "Página no encontrada"
   },
   "Manifest": {
@@ -14,45 +14,74 @@
   },
   "Quiz": {
     "language": {
-      "title": "¿Cuál es su idioma preferido?",
-      "subtitle": "Elija el idioma",
+      "title": "¿Cuál es tu idioma preferido?",
+      "subtitle": "Elige idioma",
       "english": "Inglés",
       "french": "Francés",
       "german": "Alemán",
       "spanish": "Español"
     },
     "gender": {
-      "title": "¿Con qué género se identifica?",
-      "subtitle": "Por favor, comparta cómo se identifica",
+      "title": "¿Con qué género te identificas?",
+      "subtitle": "Por favor, comparte cómo te identificas",
       "female": "Femenino",
       "male": "Masculino",
       "other": "Otro"
     },
     "age": {
-      "title": "¿Cuál es su edad?",
+      "title": "¿Cuál es tu edad?",
       "option-1": "18-29 años",
       "option-2": "30-39 años",
       "option-3": "40-49 años",
       "option-4": "50+"
     },
     "hate-in-book": {
-      "title": "¿Qué es lo que más <accent>odia</accent> en un libro?",
+      "title-plain": "¿Qué es lo que más odias en un libro?",
+      "title-rich": "¿Qué es lo que más <accent>odias</accent> en un libro?",
       "option-1": "Falta de lógica",
       "option-2": "Ritmo lento",
       "option-3": "Falta de humor",
       "option-4": "Final demasiado genérico"
     },
     "favorite-topic": {
-      "title": "¿Cuáles son sus temas favoritos?",
-      "subtitle": "Elija hasta 3 temas que le gusten",
+      "title": "¿Cuáles son tus temas favoritos?",
+      "subtitle": "Elige hasta 3 temas que te gusten",
       "option-1": "Hombre lobo",
       "option-2": "Romance",
       "option-3": "Acción",
       "option-4": "Young Adult",
       "option-5": "Obsesión real",
       "option-6": "Chico malo",
-      "option-7": "Multimillonario"
+      "option-7": "Multimillonario",
+      "option-8": "Lobos",
+      "option-9": "Amor",
+      "option-10": "Bailes",
+      "option-11": "Chica buena",
+      "option-12": "Política",
+      "option-13": "Vaqueros",
+      "option-14": "Finanzas"
     },
-    "next": "Siguiente"
+    "button": "Siguiente"
+  },
+  "Loader": {
+    "subtitle": "Buscando colecciones para ti..."
+  },
+  "Email": {
+    "email": "Correo electrónico",
+    "title": "Correo electrónico",
+    "subtitle": "Introduce tu correo electrónico para obtener acceso completo",
+    "placeholder": "Tu correo electrónico",
+    "privacy-and-terms-disclaimer": "Al continuar, acepto la <privacy>Política de privacidad</privacy> y los <terms>Términos de uso</terms>.",
+    "button": "Siguiente",
+    "errors": {
+      "invalid-email": "Por favor introduce un correo electrónico válido",
+      "required": "El correo electrónico es obligatorio"
+    }
+  },
+  "ThankYou": {
+    "title": "Gracias",
+    "subtitle": "por apoyarnos y completar el cuestionario",
+    "downloadButton": "Descargar mis respuestas",
+    "button": "Repetir cuestionario"
   }
 }
