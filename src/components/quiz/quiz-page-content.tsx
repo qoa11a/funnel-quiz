@@ -9,7 +9,7 @@ interface Props {
   quizConfig: QuizConfig;
 }
 
-export default function Quiz({ step, quizConfig }: Props) {
+export default function QuizPageContent({ step, quizConfig }: Props) {
   const currentStep = Number(step);
   const totalSteps = quizConfig.length;
   const canGoBack = currentStep > 1;
