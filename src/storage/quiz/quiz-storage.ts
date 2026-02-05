@@ -28,6 +28,8 @@ function safeParseQuizAnswers(raw: string | null): QuizAnswers | null {
 
     return null;
   } catch {
+    console.error(`Failed to parse quiz answers from localStorage: ${raw}`);
+
     return null;
   }
 }
@@ -61,7 +63,9 @@ export const quizStorage = {
         JSON.stringify(allAnswers),
       );
     } catch {
-      // Do nothing
+      console.error(`Failed to save quiz answers to localStorage: ${JSON.stringify(
+        allAnswers,
+      )}`);
     }
   },
 
@@ -71,7 +75,7 @@ export const quizStorage = {
     try {
       localStorage.removeItem(LocalStorageKey.QuizAnswers);
     } catch {
-      // Do nothing
+      console.error(`Failed to clear quiz answers from localStorage`);
     }
   },
 };

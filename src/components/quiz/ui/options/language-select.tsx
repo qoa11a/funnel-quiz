@@ -28,7 +28,7 @@ export default function LanguageSelect({
 
   return (
     <div className="flex flex-col gap-3 px-6">
-      {question.languages.map(({ id, locale, translationKey }) => {
+      {question.options.map(({ id, locale, translationKey }) => {
         const answer = t(translationKey);
 
         const isPreselected = initialAnswerId === id;

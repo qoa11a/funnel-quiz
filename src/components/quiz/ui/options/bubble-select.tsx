@@ -1,4 +1,5 @@
 import {
+  BubbleSelectionOption,
   BubbleSelectionQuestion,
 } from '@/types/quiz/quiz';
 import { useTranslations } from 'next-intl';
@@ -10,6 +11,7 @@ import { Text } from '@/components/ui/typography';
 import {
   useMultipleSelection,
 } from '@/components/quiz/hooks/use-multiple-selection';
+import { resolveOptions } from '@/components/quiz/helpers';
 
 // Split a list into four columns as evenly as possible
 function splitIntoColumns<T>(itemList: T[]) {
@@ -59,7 +61,9 @@ export default function BubbleSelect({
     selectedAnswersIds.length < maxSelections
   );
 
-  const columnList = splitIntoColumns(question.options);
+  const options = resolveOptions(question);
+
+  const columnList = splitIntoColumns(options);
 
   return (
     <>
@@ -89,15 +93,10 @@ export default function BubbleSelect({
                       id,
                     })}
                     className={cn(
-                      // size
                       'size-22 rounded-full',
-                      // layout
                       'flex flex-col items-center justify-center gap-1.5',
-                      // background
                       'bg-bg-surface',
-                      // ring
                       checked ? 'ring-2 ring-accent' : 'ring-0',
-                      // interaction
                       'transition-all duration-150',
                       !disabled && 'hover:scale-[1.02] active:scale-[0.98]',
                       disabled && 'opacity-50 cursor-not-allowed',
