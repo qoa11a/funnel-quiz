@@ -1,9 +1,8 @@
-import z from 'zod';
+'use server';
 
-export const EmailSchema = z
-  .string()
-  .min(1, { message: 'Email is required' })
-  .email({ message: 'Invalid email' });
+import { redirect } from '@/i18n/navigation';
+import { getLocale } from 'next-intl/server';
+import { EmailSchema } from '@/app/actions/email.schema';
 
 export type EmailActionState = {
   ok: boolean;
@@ -28,6 +27,10 @@ export async function submitEmailAction(
       fieldErrors: { email: first?.message ?? 'errors.invalid-email' },
     };
   }
+
+  const locale = await getLocale();
+
+  redirect({ href: '/thank-you', locale });
 
   return { ok: true };
 }

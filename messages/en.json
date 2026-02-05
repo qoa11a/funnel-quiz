@@ -76,5 +76,11 @@
       "invalid-email": "Please enter a valid email address",
       "required": "Email is required"
     }
+  },
+  "ThankYou": {
+    "title": "Thank you",
+    "subtitle": "for supporting us and passing quiz",
+    "downloadButton": "Download my answers",
+    "button": "Retake quiz"
   }
 }

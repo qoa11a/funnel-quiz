@@ -9,10 +9,11 @@ import { Text, TitleH3 } from '@/components/ui/typography';
 import Button from '@/components/ui/button';
 import {
   EmailActionState,
-  EmailSchema,
   submitEmailAction,
 } from '@/app/actions/email';
 import { getEmailErrorTranslationKey } from '@/components/email/helpers';
+import { EmailSchema } from '@/app/actions/email.schema';
+import { LocalStorageKey } from '@/enums/local-storage-key';
 
 const initialState: EmailActionState = { ok: false };
 
@@ -41,9 +42,20 @@ export default function EmailPageContent() {
   const errorTranslationKey = getEmailErrorTranslationKey(errorKeyToShow || '');
   const isButtonDisabled = pending || !clientParsed.success;
 
+  const handleSubmit = () => {
+    if (!clientParsed.success) return;
+
+    try {
+      localStorage.setItem(LocalStorageKey.Email, email);
+    } catch (error) {
+      console.error('Failed to save email to localStorage: ', error);
+    }
+  };
+
   return (
     <form
       action={formAction}
+      onSubmit={handleSubmit}
       className="max-w-2xl mx-auto w-full flex flex-col justify-center min-h-0 flex-1 pb-6 pt-29 px-5"
     >
       <div className="flex flex-col">

@@ -14,6 +14,9 @@
   --color-accent-20: oklch(0.6171 0.2418 349.29 / 20%);
   --color-accent-40: oklch(0.6171 0.2418 349.29 / 40%);
 
+  --color-green-100: oklch(0.8952 0.0504 146.04);
+  --color-green-500: oklch(0.6731 0.1624 144.21);
+
   /* Primitives — surfaces */
   --color-bg-base: oklch(0.1791 0.0883 314.92);
   --color-bg-surface: oklch(0.2683 0.0774 319.96);
