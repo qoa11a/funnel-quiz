@@ -1,6 +1,6 @@
 export default function TermsOfUsePage() {
   return (
-    <div className="max-w-7xl mx-auto w-full flex flex-col min-h-0 flex-1 py-6 px-5">
+    <div className="max-w-7xl mx-auto w-full flex flex-col min-h-0 flex-1 py-6 px-5 overflow-auto">
       <header className="mb-10">
         <h1 className="text-2xl font-semibold mb-3">Terms of Use</h1>
         <p className="text-base opacity-80">
